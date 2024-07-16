@@ -1,5 +1,5 @@
 import React from 'react';
-import CSVReader from './CSVReader'; // Adjust the path as per your project structure
+import CSVDisplay from './CSVDisplay'; // Adjust the path as per your project structure
 
 function App() {
   return (
@@ -8,10 +8,10 @@ function App() {
         <h1>CSV Display App</h1>
       </header>
       <main>
-        <CSVReader />
+        <CSVDisplay />
       </main>
     </div>
   );
 }
 
-export default CSVReader;
+export default App;
