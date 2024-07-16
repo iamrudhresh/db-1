@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { CSVReader } from 'react-csv';
+import { CSVReader } from 'react-csv';// Import CSS file
 
-const CSVReader = () => {
+const CSVDisplay = () => {
     const [csvData, setCsvData] = useState([]);
 
     const handleFile = (data) => {
@@ -9,7 +9,7 @@ const CSVReader = () => {
     };
 
     return (
-        <div>
+        <div className="csv-display">
             <h2>Upload and Display CSV</h2>
             <CSVReader
                 onFileLoaded={handleFile}
@@ -17,26 +17,31 @@ const CSVReader = () => {
                 inputId="csv-input"
                 inputStyle={{ color: 'red' }}
             />
-            <h3>CSV Data:</h3>
-            <table className="table">
-                <thead>
-                    <tr>
-                        {csvData.length > 0 && Object.keys(csvData[0]).map((key, index) => (
-                            <th key={index}>{key}</th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {csvData.map((row, rowIndex) => (
-                        <tr key={rowIndex}>
-                            {Object.values(row).map((cell, cellIndex) => (
-                                <td key={cellIndex}>{cell}</td>
+            {csvData.length > 0 && (
+                <div>
+                    <h3>CSV Data:</h3>
+                    <table className="csv-table">
+                        <thead>
+                            <tr>
+                                {Object.keys(csvData[0]).map((key, index) => (
+                                    <th key={index}>{key}</th>
+                                ))}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {csvData.map((row, rowIndex) => (
+                                <tr key={rowIndex}>
+                                    {Object.values(row).map((cell, cellIndex) => (
+                                        <td key={cellIndex}>{cell}</td>
+                                    ))}
+                                </tr>
                             ))}
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+                        </tbody>
+                    </table>
+                </div>
+            )}
         </div>
     );
 };
-export default CSVReader;
+
+export default CSVDisplay;
