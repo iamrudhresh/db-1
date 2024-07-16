@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CSVReader } from 'react-csv';
 
-const CSVDisplay = () => {
+const CSVReader = () => {
     const [csvData, setCsvData] = useState([]);
 
     const handleFile = (data) => {
@@ -39,5 +39,4 @@ const CSVDisplay = () => {
         </div>
     );
 };
-
-export default CSVDisplay;
+export default CSVReader;
